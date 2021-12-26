@@ -95,27 +95,25 @@ var showProductList = () => {
 }
 var HandleChangeCount = event => {
     const i = Number(event.target.id.substring(12));
-    if (event.target.value < 0) {
-        event.target.value = 0
+    if (Number(event.target.value) < 0) {
+        event.target.value = 0;
     };
-    if (event.target.value > products[i].stock) {
-        event.target.value = products[i].stock
+    if (Number(event.target.value) > products[i].stock) {
+        event.target.value = products[i].stock;
     };
+    products[i].units = Number(event.target.value);
     var enableCalculate = false;
     var countIterator = 0;
-    var countId = "productCount0";
     while (countIterator < products.length && !enableCalculate) {
-        enableCalculate = document.getElementById(countId).value > 0;
-        countId = "productCount" + (++countIterator);
-    }
+        enableCalculate = products[countIterator++].units > 0;
+    };
     document.getElementById("calculateButton").disabled = !enableCalculate;
 }
 var calculate = () => {
     var subtotal = 0;
     var taxes = 0;
     for (i in products) {
-        const units = Number(document.getElementById("productCount" + i).value);
-        productCalculation = units * products[i].price;
+        productCalculation = products[i].units * products[i].price;
         subtotal += productCalculation;
         switch (products[i].tax) {
             case REGULAR_TYPE:
