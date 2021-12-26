@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    margin: auto;
+    width: 600px;
+    border: 2px solid grey;
+}
+
+.main {
+    padding: 16px;
+}
+
+.results {
+    margin: 30px;
+}
+
+.element {
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: 3px;
+}
+
+.element-left {
+    display: inline-block;
+    width: 10%;
+}
+
+.element-right {
+    display: inline-block;
+    width: 90%;
+}
+
+.product-count {
+    width: 30px;
+}
+
+.calculateButton {
+    font-size: 24px;
+    color: white;
+    background-color: green;
+    height:50px;
+    width:90%;
+    margin-left: 5%;
+}
